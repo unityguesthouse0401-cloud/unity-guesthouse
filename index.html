@@ -1352,6 +1352,22 @@
     #sticky-cta { display: flex; }
     body { padding-bottom: 76px; }
   }
+
+  /* 自社HP限定の割引 */
+  .deals {
+    background: #fff;
+    border: 2px solid var(--green);
+    border-radius: 12px;
+    padding: 1.1rem 1.2rem;
+    margin: 0 0 1.4rem;
+  }
+  .deals-title { font-weight: 700; color: var(--green-dark); font-size: 1rem; margin-bottom: .7rem; }
+  .deals-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; }
+  .deal { background: var(--green-light); border-radius: 8px; padding: .7rem .8rem; display: flex; flex-direction: column; gap: .2rem; }
+  .deal-name { font-weight: 700; color: var(--green-dark); font-size: .9rem; }
+  .deal-body { font-size: .82rem; color: var(--text); line-height: 1.5; }
+  .deals-note { font-size: .76rem; color: var(--text-muted); margin-top: .7rem; line-height: 1.5; }
+  @media (max-width: 700px) { .deals-grid { grid-template-columns: 1fr; } }
 </style>
 </head>
 <body>
@@ -1420,7 +1436,16 @@
   <h2>お部屋のご案内</h2>
   <p class="rooms-lead">全室 🔑 鍵付き個室。エアコン・Wi-Fi完備。🚗 駐車場あり（台数制限あり）</p>
   <p class="rooms-lead" id="longstay-week">🏷️ 長期滞在割引：ツインルームの1週間プラン（7泊21,000円〜）は、このページから予約できます。<button class="linklike" onclick="openWeekPlan()">空きを見る</button></p>
-  <p class="rooms-lead">🏷️ ほかのお部屋の長期滞在は、お電話（<a href="tel:07036199165">070-3619-9165</a>）またはメールでご相談ください。</p>
+  <div class="deals">
+    <p class="deals-title">このページからの予約だけの割引</p>
+    <div class="deals-grid">
+      <div class="deal"><span class="deal-name">連泊割（全室）</span><span class="deal-body">3泊以上 5%OFF／5泊以上 10%OFF／7泊以上 15%OFF</span></div>
+      <div class="deal"><span class="deal-name">直前割（全室）</span><span class="deal-body">チェックイン3日前からのご予約で 10%OFF</span></div>
+      <div class="deal"><span class="deal-name">Instagramクーポン</span><span class="deal-body">Instagramで紹介しているクーポンコードを予約画面で入力すると、さらに5%OFF</span></div>
+    </div>
+    <p class="deals-note">連泊割・直前割・1週間プランは重ならず、いちばん安い料金が自動で表示されます。クーポンはその料金からさらに割り引かれます。</p>
+  </div>
+  <p class="rooms-lead">🏷️ 28泊以上のご滞在は、お電話（<a href="tel:07036199165">070-3619-9165</a>）またはメールでご相談ください。</p>
   <p class="rooms-lead">🏠 1棟貸し受付中　<a href="https://airbnb.jp/h/unity1ttou" target="_blank" rel="noopener">Airbnbで予約する ↗</a></p>
   <div class="rooms-grid" id="rooms-grid">
 
@@ -1448,7 +1473,7 @@
       <div class="room-body">
         <h3>ダブルルーム <span style="font-size:.8rem;color:var(--text-muted);">× 1室</span></h3>
         <p>ダブルベッド1台。カップルや夫婦の2名利用にぴったりの鍵付き個室。</p>
-        <div class="price">¥6,450〜 / 1名<span class="price-sub">追加1名 +¥1,500</span></div>
+        <div class="price">¥6,280〜 / 1名<span class="price-sub">追加1名 +¥1,500</span></div>
         <div class="beds-name">予約画面の表示名：ゆったりダブル個室</div>
         <div class="room-cta"><button class="btn-primary" onclick="openBooking()">空室・料金を見る</button></div>
       </div>
@@ -1485,7 +1510,7 @@
     </div>
 
   </div>
-  <p class="price-note">※ 料金は日付・人数で変わります。正確な金額は予約カレンダーでご確認ください。</p>
+  <p class="price-note">※ 料金は1泊の場合です。日付・人数で変わり、連泊割・直前割でさらに安くなります。正確な金額は予約カレンダーでご確認ください。</p>
 </section>
 
 <!-- BOOKING -->
@@ -2312,6 +2337,61 @@ const I18N = {
 "en": "Specified Commercial Transactions Act notice",
 "zh": "特定商业交易法声明",
 "ko": "특정상거래법에 따른 표기"
+},
+"このページからの予約だけの割引": {
+"en": "Discounts only when booking on this site",
+"zh": "仅限本网站预订的优惠",
+"ko": "이 사이트 예약 한정 할인"
+},
+"連泊割（全室）": {
+"en": "Multi-night discount (all rooms)",
+"zh": "连住优惠（全部客房）",
+"ko": "연박 할인（전 객실）"
+},
+"3泊以上 5%OFF／5泊以上 10%OFF／7泊以上 15%OFF": {
+"en": "3+ nights 5% off / 5+ nights 10% off / 7+ nights 15% off",
+"zh": "连住3晚以上95折／5晚以上9折／7晚以上85折",
+"ko": "3박 이상 5% 할인／5박 이상 10% 할인／7박 이상 15% 할인"
+},
+"直前割（全室）": {
+"en": "Last-minute discount (all rooms)",
+"zh": "临近入住优惠（全部客房）",
+"ko": "직전 할인（전 객실）"
+},
+"チェックイン3日前からのご予約で 10%OFF": {
+"en": "10% off when booking within 3 days of check-in",
+"zh": "入住前3天内预订享9折",
+"ko": "체크인 3일 전부터 예약 시 10% 할인"
+},
+"Instagramクーポン": {
+"en": "Instagram coupon",
+"zh": "Instagram优惠码",
+"ko": "Instagram 쿠폰"
+},
+"Instagramで紹介しているクーポンコードを予約画面で入力すると、さらに5%OFF": {
+"en": "Enter the coupon code shared on our Instagram at checkout for an extra 5% off",
+"zh": "在预订页面输入我们Instagram上公布的优惠码，再享95折",
+"ko": "Instagram에서 소개하는 쿠폰 코드를 예약 화면에 입력하면 추가 5% 할인"
+},
+"連泊割・直前割・1週間プランは重ならず、いちばん安い料金が自動で表示されます。クーポンはその料金からさらに割り引かれます。": {
+"en": "Multi-night, last-minute and 1-week plan discounts don't stack; the lowest price is shown automatically. The coupon applies on top of that price.",
+"zh": "连住优惠、临近入住优惠和一周方案不叠加，系统会自动显示最低价格。优惠码可在此基础上再折扣。",
+"ko": "연박 할인・직전 할인・1주일 플랜은 중복되지 않으며, 가장 저렴한 요금이 자동으로 표시됩니다. 쿠폰은 그 요금에서 추가로 할인됩니다."
+},
+"🏷️ 28泊以上のご滞在は、お電話（": {
+"en": "🏷️ For stays of 28 nights or more, please call (",
+"zh": "🏷️ 入住28晚以上，请致电（",
+"ko": "🏷️ 28박 이상 숙박은 전화（"
+},
+"¥6,280〜 / 1名": {
+"en": "From ¥6,280 / person",
+"zh": "¥6,280起 / 每人",
+"ko": "¥6,280~ / 1인"
+},
+"※ 料金は1泊の場合です。日付・人数で変わり、連泊割・直前割でさらに安くなります。正確な金額は予約カレンダーでご確認ください。": {
+"en": "※ Prices are per night. They vary by date and guests, and get lower with multi-night and last-minute discounts. Please check the booking calendar for exact prices.",
+"zh": "※ 以上为1晚价格，因日期和人数而异，连住或临近入住更优惠。准确金额请在预订日历中确认。",
+"ko": "※ 요금은 1박 기준입니다. 날짜·인원에 따라 달라지며, 연박·직전 할인으로 더 저렴해집니다. 정확한 금액은 예약 캘린더에서 확인해 주세요."
 }
 };
 const LANG_NAMES = { ja: '日本語', en: 'English', zh: '中文', ko: '한국어' };
